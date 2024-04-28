@@ -6,7 +6,7 @@ class AppState extends Equatable {
   const AppState({
     this.status = AuthStatus.unknown,
     this.loggedInUser,
-    this.selectedTheme = AppThemeMode.dark,
+    this.selectedTheme,
     this.musicList = const [],
     this.connectivity,
   });
@@ -35,7 +35,7 @@ class AppState extends Equatable {
 
   final User? loggedInUser;
 
-  final AppThemeMode selectedTheme;
+  final AppThemeMode? selectedTheme;
 
   final List<Music> musicList;
 

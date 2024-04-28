@@ -58,10 +58,6 @@ class _HomePageState extends State<HomePage> {
           extendBodyBehindAppBar: true,
           appBar: AppBar(
             backgroundColor: Colors.transparent,
-            title: const Text(
-              'Flutter Tunes',
-              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-            ),
             actions: [
               IconButton(
                 onPressed: () {

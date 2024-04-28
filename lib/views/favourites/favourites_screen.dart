@@ -15,10 +15,7 @@ class FavouritesPage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        title: const Text("Favourites",
-            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+        title: const Text("Favourites"),
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();

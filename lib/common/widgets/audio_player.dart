@@ -4,6 +4,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
+import 'package:flutter_tunes/app/app_colors.dart';
 import 'package:flutter_tunes/common/utils.dart';
 
 class AudioPlayer extends StatefulWidget {
@@ -132,7 +133,25 @@ class _AudioPlayerState extends State<AudioPlayer> {
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
+        SizedBox(
+          height: 30.0,
+          child: SliderTheme(
+            data: SliderThemeData(overlayShape: SliderComponentShape.noThumb),
+            child: Slider(
+              thumbColor: AppColors.primaryColor,
+              min: 0.0,
+              max: maxDuration,
+              value: min(sliderCurrentPosition, maxDuration),
+              onChanged: (value) async {
+                await seekToPlayer(value.toInt());
+              },
+              divisions: maxDuration == 0.0 ? 1 : maxDuration.toInt(),
+            ),
+          ),
+        ),
+        SizedBox(height: 6),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
               alignment: Alignment.center,
@@ -140,26 +159,8 @@ class _AudioPlayerState extends State<AudioPlayer> {
               child: Text(
                 Utils.durationString(currentPosition),
                 style: const TextStyle(
-                  fontSize: 18.0,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            Expanded(
-              child: SizedBox(
-                height: 30.0,
-                child: SliderTheme(
-                  data: SliderThemeData(
-                      overlayShape: SliderComponentShape.noThumb),
-                  child: Slider(
-                    min: 0.0,
-                    max: maxDuration,
-                    value: min(sliderCurrentPosition, maxDuration),
-                    onChanged: (value) async {
-                      await seekToPlayer(value.toInt());
-                    },
-                    divisions: maxDuration == 0.0 ? 1 : maxDuration.toInt(),
-                  ),
+                  fontSize: 15.0,
+                  color: Colors.black54,
                 ),
               ),
             ),
@@ -169,14 +170,13 @@ class _AudioPlayerState extends State<AudioPlayer> {
               child: Text(
                 Utils.durationString(audioDuration),
                 style: const TextStyle(
-                  fontSize: 18.0,
-                  color: Colors.black,
+                  fontSize: 15.0,
+                  color: Colors.black54,
                 ),
               ),
             ),
           ],
         ),
-        const SizedBox(height: 36.0),
         Container(
           height: 80.0,
           width: 80.0,

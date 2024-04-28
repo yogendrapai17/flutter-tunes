@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_tunes/app/app_colors.dart';
 import 'package:flutter_tunes/app/bloc/app_bloc.dart';
 
 enum AppThemeMode { light, dark }
@@ -19,6 +20,19 @@ class AppTheme {
           TargetPlatform.iOS: ZoomPageTransitionsBuilder(),
         },
       ),
+      primaryColor: AppColors.primaryColor,
+      appBarTheme: const AppBarTheme(
+        elevation: 0,
+        color: Colors.transparent,
+        centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.black),
+        titleTextStyle: TextStyle(
+          fontSize: 24.0,
+          fontWeight: FontWeight.w600,
+          color: Colors.black,
+          fontFamily: 'Poppins',
+        ),
+      ),
     );
   }
 
@@ -27,21 +41,15 @@ class AppTheme {
     return ThemeData(
       fontFamily: 'Poppins',
       brightness: Brightness.dark,
-      primaryColor: Colors.teal, // Primary color for dark theme
+      primaryColor: AppColors.primaryColor,
+
       ///accentColor: Colors.tealAccent, // Accent color for dark theme
       textTheme: const TextTheme(
         bodyLarge: TextStyle(color: Colors.white), // Body text color
         titleLarge: TextStyle(color: Colors.white), // Headline text color
       ),
-      scaffoldBackgroundColor: Colors.black, // Background color
-      appBarTheme: const AppBarTheme(
-        color: Colors.teal, // App bar color
-        //   textTheme: TextTheme(
-        //     headline6: TextStyle(color: Colors.white), // App bar text color
-        //   ),
-        // ),
-        // You can define styles for other UI elements
-      ),
+      scaffoldBackgroundColor: AppColors.darkBackground, // Background color
+      appBarTheme: const AppBarTheme(elevation: 0.0, color: Colors.transparent),
     );
   }
 
@@ -52,7 +60,11 @@ class AppTheme {
       return LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        colors: [Colors.blue.shade200, Colors.blue.shade500],
+        colors: [
+          AppColors.primaryColor.withOpacity(0.05),
+          AppColors.primaryColor.withOpacity(0.25),
+          Colors.white
+        ],
       );
     } else {
       return LinearGradient(

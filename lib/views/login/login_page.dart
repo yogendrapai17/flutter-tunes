@@ -58,7 +58,6 @@ class _LoginPageState extends State<LoginPage> {
                 child: Form(
                   key: _formKey,
                   child: ListView(
-                    //mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(StringConsts.appLogo, height: 148),
                       const SizedBox(height: 24.0),

@@ -38,15 +38,18 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         !connectivity.contains(ConnectivityResult.none)) {
       final userData = await _syncUserSession(userMap: json.decode(session));
       emit(state.copyWith(
-          status: (userData != null)
-              ? AuthStatus.authenticated
-              : AuthStatus.unauthenticated,
-          loggedInUser: userData,
-          connectivity: connectivity.first));
+        status: (userData != null)
+            ? AuthStatus.authenticated
+            : AuthStatus.unauthenticated,
+        loggedInUser: userData,
+        connectivity: connectivity.first,
+        selectedTheme: event.themeMode,
+      ));
     } else {
       emit(state.copyWith(
           status: AuthStatus.unauthenticated,
-          connectivity: connectivity.first));
+          connectivity: connectivity.first,
+          selectedTheme: event.themeMode));
     }
 
     List<Music> musicItems = [];

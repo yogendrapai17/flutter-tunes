@@ -7,19 +7,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "flutterTunes_debug",
+            "name": "debug-flutterTunes",
             "request": "launch",
             "type": "dart",
             "program": "lib/app/main.dart",
         },
         {
-            "name": "flutterTunes_profile",
+            "name": "profile-flutterTunes",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "flutterTunes_release",
+            "name": "release_flutterTunes",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
