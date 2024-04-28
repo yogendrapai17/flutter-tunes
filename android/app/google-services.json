@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "627799520307",
+    "project_id": "flutter-tunes-app",
+    "storage_bucket": "flutter-tunes-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:627799520307:android:e3dbae151746903bfcdf46",
+        "android_client_info": {
+          "package_name": "com.yogi.flutterTunes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsZkjWJlhMRBmSIluI9BPVfj1K_QQMlV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

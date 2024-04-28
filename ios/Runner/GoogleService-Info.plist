@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBEvmPM1Ig191Fc9E9fzwKhiOz_vJBbskc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>627799520307</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.yogi.flutterTunes</string>
+	<key>PROJECT_ID</key>
+	<string>flutter-tunes-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutter-tunes-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:627799520307:ios:7b5914f1f7cb98f7fcdf46</string>
+</dict>
+</plist>

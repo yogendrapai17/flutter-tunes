@@ -1,0 +1,138 @@
+{"data":[
+    {
+        "id": "ncs_45634563575",
+        "title": "Sky High",
+        "artist": "Elektronomia",
+        "genre": "Progressive House",
+        "year": 2017,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Elektronomia%20%20Sky%20High%20%20Progressive%20House%202017.mp3?alt=media&token=d9d4e50b-7ea7-4a24-9f85-22e761ed6105"
+    },
+    {
+        "id": "ncs_567345",
+        "title": "I Wanna Dance",
+        "artist": "PYTI",
+        "genre": "Techno",
+        "year": 2022,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/PYTI%20-%20I%20Wanna%20Dance%20-%20Techno%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=e5f7d8ff-ef6a-4b8c-bf16-55c205bf9fbd"
+    },
+    {
+        "id": "ncs_54235645",
+        "title": "Stars in the Sky",
+        "artist": "BEKSY",
+        "genre": "Electronic Pop",
+        "year": 2023,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/BEKSY%20-%20Stars%20in%20the%20Sky%20%20Electronic%20Pop%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=a22f12e8-e95f-40b5-b8b4-01de7440079e"
+    },
+    {
+        "id": "ncs_2423542",
+        "title": "Everyday",
+        "artist": "Ripple",
+        "genre": "DnB",
+        "year": 2024,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Ripple%20-%20Everyday%20%20DnB%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=b3981f64-da52-4709-9b37-223b07000de2"
+    },
+    {
+        "id": "ncs_567345",
+        "title": "I Wanna Dance",
+        "artist": "PYTI",
+        "genre": "Techno",
+        "year": 2022,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/PYTI%20-%20I%20Wanna%20Dance%20-%20Techno%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=e5f7d8ff-ef6a-4b8c-bf16-55c205bf9fbd"
+    },
+    {
+        "id": "ncs_54235645",
+        "title": "Stars in the Sky",
+        "artist": "BEKSY",
+        "genre": "Electronic Pop",
+        "year": 2023,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/BEKSY%20-%20Stars%20in%20the%20Sky%20%20Electronic%20Pop%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=a22f12e8-e95f-40b5-b8b4-01de7440079e"
+    },
+    {
+        "id": "ncs_2423542",
+        "title": "Everyday",
+        "artist": "Ripple",
+        "genre": "DnB",
+        "year": 2024,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Ripple%20-%20Everyday%20%20DnB%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=b3981f64-da52-4709-9b37-223b07000de2"
+    },
+    {
+        "id": "ncs_567345",
+        "title": "I Wanna Dance",
+        "artist": "PYTI",
+        "genre": "Techno",
+        "year": 2022,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/PYTI%20-%20I%20Wanna%20Dance%20-%20Techno%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=e5f7d8ff-ef6a-4b8c-bf16-55c205bf9fbd"
+    },
+    {
+        "id": "ncs_54235645",
+        "title": "Stars in the Sky",
+        "artist": "BEKSY",
+        "genre": "Electronic Pop",
+        "year": 2023,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/BEKSY%20-%20Stars%20in%20the%20Sky%20%20Electronic%20Pop%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=a22f12e8-e95f-40b5-b8b4-01de7440079e"
+    },
+    {
+        "id": "ncs_2423542",
+        "title": "Everyday",
+        "artist": "Ripple",
+        "genre": "DnB",
+        "year": 2024,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Ripple%20-%20Everyday%20%20DnB%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=b3981f64-da52-4709-9b37-223b07000de2"
+    },
+    {
+        "id": "ncs_567345",
+        "title": "I Wanna Dance",
+        "artist": "PYTI",
+        "genre": "Techno",
+        "year": 2022,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/PYTI%20-%20I%20Wanna%20Dance%20-%20Techno%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=e5f7d8ff-ef6a-4b8c-bf16-55c205bf9fbd"
+    },
+    {
+        "id": "ncs_54235645",
+        "title": "Stars in the Sky",
+        "artist": "BEKSY",
+        "genre": "Electronic Pop",
+        "year": 2023,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/BEKSY%20-%20Stars%20in%20the%20Sky%20%20Electronic%20Pop%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=a22f12e8-e95f-40b5-b8b4-01de7440079e"
+    },
+    {
+        "id": "ncs_2423542",
+        "title": "Everyday",
+        "artist": "Ripple",
+        "genre": "DnB",
+        "year": 2024,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Ripple%20-%20Everyday%20%20DnB%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=b3981f64-da52-4709-9b37-223b07000de2"
+    },
+    {
+        "id": "ncs_567345",
+        "title": "I Wanna Dance",
+        "artist": "PYTI",
+        "genre": "Techno",
+        "year": 2022,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/PYTI%20-%20I%20Wanna%20Dance%20-%20Techno%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=e5f7d8ff-ef6a-4b8c-bf16-55c205bf9fbd"
+    },
+    {
+        "id": "ncs_54235645",
+        "title": "Stars in the Sky",
+        "artist": "BEKSY",
+        "genre": "Electronic Pop",
+        "year": 2023,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/BEKSY%20-%20Stars%20in%20the%20Sky%20%20Electronic%20Pop%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=a22f12e8-e95f-40b5-b8b4-01de7440079e"
+    }
+]
+}
