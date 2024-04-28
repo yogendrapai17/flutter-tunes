@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_tunes/app/app_colors.dart';
 import 'package:flutter_tunes/app/bloc/app_bloc.dart';
 import 'package:flutter_tunes/app/routes.dart';
 import 'package:flutter_tunes/app/themes.dart';
@@ -50,13 +51,39 @@ class _SplashPageState extends State<SplashPage> {
       },
       child: Scaffold(
         body: Container(
-          decoration:
-              BoxDecoration(gradient: AppTheme.getScaffoldBackground(context)),
-          child: Center(
-            child: Hero(
-              tag: 'logo',
-              child: Image.asset(StringConsts.appLogo, width: 180),
-            ),
+          width: double.infinity,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Colors.blueGrey,
+              Colors.grey.shade900,
+            ],
+          )),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Spacer(),
+              Hero(
+                tag: 'logo',
+                child: Image.asset(StringConsts.appLogo, width: 180),
+              ),
+              const SizedBox(height: 80),
+              const CircularProgressIndicator(),
+              const Spacer(),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 32),
+                child: Text(
+                  "Your personalized music universe",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      fontStyle: FontStyle.italic),
+                ),
+              ),
+            ],
           ),
         ),
       ),

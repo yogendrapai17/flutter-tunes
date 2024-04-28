@@ -1,6 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_tunes/app/app_colors.dart';
 import 'package:flutter_tunes/app/bloc/app_bloc.dart';
 import 'package:flutter_tunes/app/routes.dart';
 import 'package:flutter_tunes/app/themes.dart';
@@ -54,11 +55,12 @@ class _LoginPageState extends State<LoginPage> {
               ),
               child: Padding(
                 padding:
-                    const EdgeInsets.only(left: 36.0, top: 80.0, right: 36.0),
+                    const EdgeInsets.only(left: 36.0, right: 36.0, top: 36.0),
                 child: Form(
                   key: _formKey,
                   child: ListView(
                     children: [
+                      const SizedBox(height: 56),
                       Image.asset(StringConsts.appLogo, height: 148),
                       const SizedBox(height: 24.0),
                       const Text(
@@ -67,12 +69,11 @@ class _LoginPageState extends State<LoginPage> {
                             fontSize: 32.0, fontWeight: FontWeight.bold),
                         textAlign: TextAlign.center,
                       ),
-                      const SizedBox(height: 24.0),
-                      const SizedBox(height: 20.0),
+                      const SizedBox(height: 36.0),
                       Text(
                         _getTitle(builderContext),
                         style: const TextStyle(
-                            fontSize: 22.0, fontWeight: FontWeight.w500),
+                            fontSize: 20.0, fontWeight: FontWeight.w500),
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 20.0),
@@ -205,11 +206,12 @@ class _LoginPageState extends State<LoginPage> {
                           }
                         },
                         style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 50.0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            backgroundColor: AppColors.primaryColor),
                         child: Text(_getButtonTitle(builderContext)),
                       ),
                     ],

@@ -21,6 +21,8 @@ class AppTheme {
         },
       ),
       primaryColor: AppColors.primaryColor,
+      progressIndicatorTheme:
+          const ProgressIndicatorThemeData(color: AppColors.primaryColor),
       appBarTheme: const AppBarTheme(
         elevation: 0,
         color: Colors.transparent,
@@ -70,7 +72,10 @@ class AppTheme {
       return LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        colors: [Colors.blueGrey, Colors.grey.shade900],
+        colors: [
+          Colors.blueGrey,
+          Colors.grey.shade900,
+        ],
       );
     }
   }

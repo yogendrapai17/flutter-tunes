@@ -139,6 +139,8 @@ class _AudioPlayerState extends State<AudioPlayer> {
             data: SliderThemeData(overlayShape: SliderComponentShape.noThumb),
             child: Slider(
               thumbColor: AppColors.primaryColor,
+              inactiveColor: AppColors.primaryColor.withOpacity(0.1),
+              activeColor: AppColors.primaryColor.withOpacity(0.7),
               min: 0.0,
               max: maxDuration,
               value: min(sliderCurrentPosition, maxDuration),
@@ -149,7 +151,7 @@ class _AudioPlayerState extends State<AudioPlayer> {
             ),
           ),
         ),
-        SizedBox(height: 6),
+        const SizedBox(height: 6),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
