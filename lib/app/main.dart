@@ -23,10 +23,10 @@ class FlutterTunesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<AppBloc>(
       create: (BuildContext context) =>
-          AppBloc()..add(AppStartedEvent(themeMode: AppThemeMode.light)),
+          AppBloc()..add(AppStartedEvent(themeMode: AppThemeMode.dark)),
       child: MaterialApp(
         title: StringConsts.appTitle,
-        theme: AppTheme.lightTheme,
+        theme: AppTheme.darkTheme,
         onGenerateRoute: AppRouter.onGenerateRoute,
         initialRoute: AppRouteNames.splash,
         scrollBehavior: ScrollConfiguration.of(context).copyWith(

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_tunes/app/app_colors.dart';
 import 'package:flutter_tunes/app/bloc/app_bloc.dart';
 import 'package:flutter_tunes/app/routes.dart';
-import 'package:flutter_tunes/app/themes.dart';
 import 'package:flutter_tunes/common/consts.dart';
 
 class SplashPage extends StatefulWidget {
