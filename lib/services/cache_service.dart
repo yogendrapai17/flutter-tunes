@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class CacheService {
   CacheService();
 
-  /// Save String list to cache
+  /// Save String to cache
   Future<bool> saveStringToCache(
       {required String key, required String value}) async {
     final prefs = await SharedPreferences.getInstance();
@@ -27,6 +27,19 @@ class CacheService {
   Future<List<String>?> readListFromCache(String key) async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getStringList(key);
+  }
+
+  /// Save Boolean to cache
+  Future<bool> saveBoolToCache(
+      {required String key, required bool value}) async {
+    final prefs = await SharedPreferences.getInstance();
+    return await prefs.setBool(key, value);
+  }
+
+  /// Try reading [bool] data from the key. If it doesn't exist, returns null.
+  Future<bool?> readBoolFromCache(String key) async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(key);
   }
 
   /// Remove a value from cache for the key

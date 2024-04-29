@@ -14,7 +14,7 @@ class AppState extends Equatable {
   AppState copyWith({
     AuthStatus? status,
     User? loggedInUser,
-    AppThemeMode? selectedTheme,
+    ThemeMode? selectedTheme,
     List<Music>? musicList,
     ConnectivityResult? connectivity,
   }) {
@@ -35,7 +35,7 @@ class AppState extends Equatable {
 
   final User? loggedInUser;
 
-  final AppThemeMode? selectedTheme;
+  final ThemeMode? selectedTheme;
 
   final List<Music> musicList;
 

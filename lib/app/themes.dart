@@ -3,13 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tunes/app/app_colors.dart';
 import 'package:flutter_tunes/app/bloc/app_bloc.dart';
 
-enum AppThemeMode { light, dark }
-
 class AppTheme {
   const AppTheme._();
 
   /// Light [ThemeData] for the app
-  static ThemeData get lightTheme {
+  static ThemeData get lightThemeData {
     return ThemeData(
       fontFamily: 'Poppins',
       brightness: Brightness.light,
@@ -39,18 +37,21 @@ class AppTheme {
   }
 
   /// Dark [ThemeData] for the app
-  static ThemeData get darkTheme {
+  static ThemeData get darkThemeData {
     return ThemeData(
       fontFamily: 'Poppins',
       brightness: Brightness.dark,
       primaryColor: AppColors.primaryColor,
-
-      ///accentColor: Colors.tealAccent, // Accent color for dark theme
+      inputDecorationTheme: const InputDecorationTheme(
+        filled: true,
+        fillColor: AppColors.darkBackground,
+      ),
       textTheme: const TextTheme(
+        labelLarge: TextStyle(color: Colors.white),
         bodyLarge: TextStyle(color: Colors.white), // Body text color
         titleLarge: TextStyle(color: Colors.white), // Headline text color
       ),
-      scaffoldBackgroundColor: AppColors.darkBackground, // Background color
+      //scaffoldBackgroundColor: AppColors.darkBackground, // Background color
       appBarTheme: const AppBarTheme(elevation: 0.0, color: Colors.transparent),
     );
   }
@@ -58,25 +59,8 @@ class AppTheme {
   static LinearGradient getScaffoldBackground(BuildContext context) {
     final selectedTheme = BlocProvider.of<AppBloc>(context).state.selectedTheme;
 
-    if (selectedTheme == AppThemeMode.light) {
-      return LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [
-          AppColors.primaryColor.withOpacity(0.05),
-          AppColors.primaryColor.withOpacity(0.25),
-          Colors.white
-        ],
-      );
-    } else {
-      return LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [
-          Colors.blueGrey,
-          Colors.grey.shade900,
-        ],
-      );
-    }
+    return (selectedTheme == ThemeMode.light)
+        ? AppColors.lightGradient
+        : AppColors.darkGradient;
   }
 }

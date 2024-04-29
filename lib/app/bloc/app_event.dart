@@ -4,7 +4,7 @@ abstract class AppEvent {}
 
 /// Initial startup event
 class AppStartedEvent extends AppEvent {
-  final AppThemeMode themeMode;
+  final ThemeMode themeMode;
 
   AppStartedEvent({required this.themeMode});
 }
@@ -38,4 +38,11 @@ class SearchFilterSongEvent extends AppEvent {
   final List<String>? filter;
 
   SearchFilterSongEvent({this.searchKey, this.filter});
+}
+
+/// Enable/Disable Dark Mode in application
+class ToggleDarkModeEvent extends AppEvent {
+  final bool isEnabled;
+
+  ToggleDarkModeEvent({required this.isEnabled});
 }

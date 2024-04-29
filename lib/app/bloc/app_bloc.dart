@@ -4,7 +4,6 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_tunes/app/themes.dart';
 import 'package:flutter_tunes/common/consts.dart';
 import 'package:flutter_tunes/common/models/music.dart';
 import 'package:flutter_tunes/common/models/user.dart';
@@ -23,12 +22,14 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     on<UserLogoutEvent>(_onUserLogoutEvent);
     on<ToggleSongFavouriteEvent>(_onToggleFavouriteEvent);
     on<ConnectivityChangedEvent>(_onConnectivityChangedEvent);
+    on<ToggleDarkModeEvent>(_onToggleDarkModeEvent);
   }
 
   Future<void> _onAppInitEvent(
     AppStartedEvent event,
     Emitter<AppState> emit,
   ) async {
+    emit(state.copyWith(selectedTheme: event.themeMode));
     final connectivity = await Connectivity().checkConnectivity();
 
     final session = await _cacheService.readStringFromCache(StringConsts.user);
@@ -43,13 +44,11 @@ class AppBloc extends Bloc<AppEvent, AppState> {
             : AuthStatus.unauthenticated,
         loggedInUser: userData,
         connectivity: connectivity.first,
-        selectedTheme: event.themeMode,
       ));
     } else {
       emit(state.copyWith(
           status: AuthStatus.unauthenticated,
-          connectivity: connectivity.first,
-          selectedTheme: event.themeMode));
+          connectivity: connectivity.first));
     }
 
     List<Music> musicItems = [];
@@ -123,6 +122,17 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     Emitter<AppState> emit,
   ) async {
     emit(state.copyWith(connectivity: event.currentConnectivity));
+  }
+
+  /// Enable/Disable Dark Mode
+  Future<void> _onToggleDarkModeEvent(
+    ToggleDarkModeEvent event,
+    Emitter<AppState> emit,
+  ) async {
+    _cacheService.saveBoolToCache(
+        key: StringConsts.darkTheme, value: event.isEnabled);
+    emit(state.copyWith(
+        selectedTheme: (event.isEnabled) ? ThemeMode.dark : ThemeMode.light));
   }
 
   /// Sync local changes with remote and fetch the latest data

@@ -104,8 +104,6 @@ class _LoginPageState extends State<LoginPage> {
                               validator: FormBuilderValidators.email(),
                               decoration: InputDecoration(
                                 hintText: 'Enter your email',
-                                filled: true,
-                                fillColor: Colors.white,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(16.0),
                                 ),
@@ -122,9 +120,6 @@ class _LoginPageState extends State<LoginPage> {
                                   maxLength: 25,
                                   decoration: InputDecoration(
                                     hintText: 'Your Name',
-                                    filled: true,
-                                    counterText: "",
-                                    fillColor: Colors.white,
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(16.0),
                                     ),
@@ -143,12 +138,11 @@ class _LoginPageState extends State<LoginPage> {
                                   controller: _passwordController,
                                   obscureText: true,
                                   maxLength: 25,
-                                  validator: FormBuilderValidators.minLength(6),
+                                  validator: FormBuilderValidators.minLength(6,
+                                      errorText: 'Min 6 characters required'),
                                   decoration: InputDecoration(
                                     counterText: "",
                                     hintText: 'Password',
-                                    filled: true,
-                                    fillColor: Colors.white,
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(16.0),
                                     ),
@@ -164,12 +158,11 @@ class _LoginPageState extends State<LoginPage> {
                                 child: TextFormField(
                                   obscureText: true,
                                   controller: _cnfPasswordController,
-                                  validator: FormBuilderValidators.minLength(6),
+                                  validator: FormBuilderValidators.minLength(6,
+                                      errorText: 'Min 6 characters required'),
                                   decoration: InputDecoration(
                                     hintText: 'Confirm password',
-                                    filled: true,
                                     counterText: "",
-                                    fillColor: Colors.white,
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(16.0),
                                     ),
@@ -244,7 +237,8 @@ class _LoginPageState extends State<LoginPage> {
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                   backgroundColor: AppColors.primaryColor),
-                              child: Text(_getButtonTitle(builderContext)),
+                              child: Text(_getButtonTitle(builderContext),
+                                  style: const TextStyle(color: Colors.white)),
                             ),
                           ],
                         ),

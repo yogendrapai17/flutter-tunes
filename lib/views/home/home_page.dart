@@ -8,6 +8,7 @@ import 'package:flutter_tunes/app/routes.dart';
 import 'package:flutter_tunes/app/themes.dart';
 import 'package:flutter_tunes/common/models/music.dart';
 import 'package:flutter_tunes/common/widgets/music_tile.dart';
+import 'package:flutter_tunes/views/home/home_drawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -67,31 +68,8 @@ class _HomePageState extends State<HomePage> {
               )
             ],
           ),
-          drawer: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: [
-                const DrawerHeader(
-                  child: Text('Menu'),
-                ),
-                ListTile(
-                  leading: const Icon(Icons.logout),
-                  title: const Text('Logout'),
-                  onTap: () {
-                    BlocProvider.of<AppBloc>(context).add(UserLogoutEvent());
-                    Navigator.of(context)
-                        .pushReplacementNamed(AppRouteNames.login);
-                  },
-                ),
-                ListTile(
-                  title: Text('Playlist 2'),
-                  onTap: () {
-                    // Navigate to playlist 2
-                  },
-                ),
-                // Add more menu items as needed
-              ],
-            ),
+          drawer: const Drawer(
+            child: HomeDrawer(),
           ),
           body: Container(
             decoration: BoxDecoration(
@@ -120,7 +98,7 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.all(8.0),
           child: Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),

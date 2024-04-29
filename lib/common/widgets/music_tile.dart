@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tunes/app/app_colors.dart';
 import 'package:flutter_tunes/app/bloc/app_bloc.dart';
-import 'package:flutter_tunes/app/themes.dart';
 import 'package:flutter_tunes/common/models/music.dart';
 import 'package:flutter_tunes/common/utils.dart';
 import 'package:provider/provider.dart';
@@ -41,7 +40,7 @@ class MusicTile extends StatelessWidget {
                 left: 0.0,
                 right: 0.0,
                 child: Container(
-                  color: (appState.selectedTheme == AppThemeMode.light)
+                  color: (appState.selectedTheme == ThemeMode.light)
                       ? Colors.white
                       : AppColors.darkBackground,
                   padding: const EdgeInsets.all(12.0),

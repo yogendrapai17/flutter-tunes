@@ -15,7 +15,9 @@ class AppRouteNames {
 }
 
 class AppRouter {
-  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
+  static Route<dynamic> onGenerateRoute(
+    RouteSettings settings,
+  ) {
     switch (settings.name) {
       case AppRouteNames.splash:
         return _buildMaterialPageRoute(const SplashPage());

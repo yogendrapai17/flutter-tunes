@@ -17,4 +17,6 @@ class StringConsts {
   static const String signUp = 'Welcome to Flutter Tunes';
 
   static const String user = 'user';
+
+  static const String darkTheme = 'darkMode';
 }
