@@ -151,7 +151,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     }
 
     final filterSearch =
-        _searchMusic(filters: existingFilters, key: state.searchKey);
+        _searchMusic(filters: existingFilters, searchKey: state.searchKey);
 
     emit(state.copyWith(filters: existingFilters, searchResult: filterSearch));
   }
@@ -160,17 +160,47 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   Future<void> _onSearchSongEvent(
     SearchSongEvent event,
     Emitter<AppState> emit,
-  ) async {}
+  ) async {
+    final searchResults =
+        _searchMusic(filters: state.filters, searchKey: event.searchKey);
+
+    emit(state.copyWith(
+        searchResult: searchResults, searchKey: event.searchKey));
+  }
 
   /// Search Music based on filters and key
-  List<Music> _searchMusic({String? key, List<String>? filters}) {
-    List<Music> searchRes = [];
+  List<Music> _searchMusic({String? searchKey, List<String>? filters}) {
+    List<Music> filterSearchRes = [];
+
+    List<Music> keySearchRes = [];
+
     if (filters?.isNotEmpty ?? false) {
-      searchRes.addAll(state.musicList
+      filterSearchRes.addAll(state.musicList
           .where((music) => filters!.contains(music.genre))
           .toList());
     }
-    return searchRes;
+
+    if (searchKey?.isNotEmpty ?? false) {
+      keySearchRes = state.musicList
+          .where((music) =>
+              music.title.toLowerCase().contains(searchKey!) ||
+              music.artist.toLowerCase().contains(searchKey) ||
+              music.genre.toLowerCase().contains(searchKey) ||
+              music.year == int.tryParse(searchKey))
+          .toList();
+    } else {
+      return filterSearchRes;
+    }
+
+    if (keySearchRes.isNotEmpty && filterSearchRes.isNotEmpty) {
+      // Return common items in both the search results.
+      return filterSearchRes
+          .toSet()
+          .intersection(keySearchRes.toSet())
+          .toList();
+    } else {
+      return keySearchRes;
+    }
   }
 
   /// Sync local changes with remote and fetch the latest data
@@ -191,7 +221,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   }
 
   /// Sync the Fav data with remote asynchronously.
-  /// On failure,
+  /// On failure, save state to cache
   Future<bool> _syncFavouriteData(User userData) async {
     try {
       final result = await _userService.updateUserDetails(userData: userData);

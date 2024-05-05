@@ -42,9 +42,9 @@ class ToggleFilterEvent extends AppEvent {
 
 /// Search song with a key
 class SearchSongEvent extends AppEvent {
-  final String? searchKey;
+  final String searchKey;
 
-  SearchSongEvent({this.searchKey});
+  SearchSongEvent({required this.searchKey});
 }
 
 /// Enable/Disable Dark Mode in application

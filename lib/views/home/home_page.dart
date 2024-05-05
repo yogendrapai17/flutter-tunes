@@ -108,7 +108,11 @@ class _HomePageState extends State<HomePage> {
                                 (state.searchKey?.isNotEmpty ?? false)) {
                               if (state.searchResult?.isEmpty ?? true) {
                                 return const Center(
-                                  child: Text('No items that match the search'),
+                                  child: Padding(
+                                    padding: EdgeInsets.only(top: 24),
+                                    child:
+                                        Text('No items that match the search'),
+                                  ),
                                 );
                               }
                               return ListView.separated(

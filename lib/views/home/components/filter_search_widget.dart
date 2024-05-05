@@ -9,9 +9,10 @@ class FilterSearchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size.width;
-    return Stack(
+    return Column(
       children: [
+        const AnimatedSearchBar(),
+        const SizedBox(width: 8),
         BlocSelector<AppBloc, AppState, List<String>>(
           selector: (state) {
             return state.filters;
@@ -19,13 +20,13 @@ class FilterSearchWidget extends StatelessWidget {
           builder: (context, filterList) {
             final bloc = BlocProvider.of<AppBloc>(context);
             return SizedBox(
-              width: screenSize * 0.75,
+              width: double.infinity,
               height: 60,
               child: ListView(
+                padding: EdgeInsets.zero,
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 children: [
-                  const SizedBox(width: 12),
                   GenreFilterChip(
                     text: 'Techno',
                     isEnabled: filterList.contains('Techno'),
@@ -62,8 +63,6 @@ class FilterSearchWidget extends StatelessWidget {
             );
           },
         ),
-        const AnimatedSearchBar(),
-        const SizedBox(width: 8),
       ],
     );
   }
