@@ -28,6 +28,14 @@ class FilterSearchWidget extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: [
                   GenreFilterChip(
+                    text: 'Future House',
+                    isEnabled: filterList.contains('Future House'),
+                    onSelected: () {
+                      bloc.add(ToggleFilterEvent(filter: 'Future House'));
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  GenreFilterChip(
                     text: 'Techno',
                     isEnabled: filterList.contains('Techno'),
                     onSelected: () {
@@ -56,6 +64,14 @@ class FilterSearchWidget extends StatelessWidget {
                     isEnabled: filterList.contains('Electronic Pop'),
                     onSelected: () {
                       bloc.add(ToggleFilterEvent(filter: 'Electronic Pop'));
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  GenreFilterChip(
+                    text: 'Trap',
+                    isEnabled: filterList.contains('Trap'),
+                    onSelected: () {
+                      bloc.add(ToggleFilterEvent(filter: 'Trap'));
                     },
                   ),
                 ],

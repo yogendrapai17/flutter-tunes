@@ -1,5 +1,14 @@
 {"data":[
     {
+        "id": "ncs_865784667",
+        "title": "Where We Started",
+        "artist": "Lost Sky feat. Jex",
+        "genre": "Future House",
+        "year": 2019,
+        "albumArt": "https://indigomusic.com/wp-content/uploads/2022/10/Pink-Floyd.webp",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Lost%20Sky%20-%20Where%20We%20Started%20(feat.%20Jex)%20%20Melodic%20Dubstep%20%20NCS%20-%20Copyright%20Free%20Music.mp3?alt=media&token=ad2f243e-cf2f-4b06-8170-5c6d7e68a533"
+    },
+    {
         "id": "ncs_45634563575",
         "title": "Sky High",
         "artist": "Elektronomia",
@@ -14,7 +23,7 @@
         "artist": "PYTI",
         "genre": "Techno",
         "year": 2022,
-        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi3LgJvtVz5qK_KBp1rNlEmTlG9sj-2q7ThSuyHKnCZA&s",
         "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/PYTI%20-%20I%20Wanna%20Dance%20-%20Techno%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=e5f7d8ff-ef6a-4b8c-bf16-55c205bf9fbd"
     },
     {
@@ -23,7 +32,7 @@
         "artist": "BEKSY",
         "genre": "Electronic Pop",
         "year": 2023,
-        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ4OA_NMMnP041PVfrziNv1a5hYc9asEY23RumOgbPNg&s",
         "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/BEKSY%20-%20Stars%20in%20the%20Sky%20%20Electronic%20Pop%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=a22f12e8-e95f-40b5-b8b4-01de7440079e"
     },
     {
@@ -32,7 +41,7 @@
         "artist": "Ripple",
         "genre": "DnB",
         "year": 2024,
-        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "albumArt": "https://www.billboard.com/wp-content/uploads/2022/06/beyonce-Lemonade-album-art-billboard-1240.jpg?w=600",
         "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Ripple%20-%20Everyday%20%20DnB%20%20NCS%20%20Copyright%20Free%20Music.mp3?alt=media&token=b3981f64-da52-4709-9b37-223b07000de2"
     },
     {
@@ -41,7 +50,7 @@
         "artist": "Cartoon Jeja feat. Daniel Levi",
         "genre": "Electronic Pop",
         "year": 2016,
-        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "albumArt": "https://hips.hearstapps.com/hmg-prod/images/elle-avrillavigne-ff-web-1-1668526698.jpg?crop=1xw:0.6666666666666666xh;center,top&resize=640:*",
         "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Cartoon%20J%C3%A9ja%20%20On%20%26%20On%20feat%20Daniel%20Levi%20%20Electronic%20Pop%202016%20.mp3?alt=media&token=9185b936-feb7-482a-a76b-c1e4cc919e99"
     },
     {
@@ -50,7 +59,7 @@
         "artist": "DEAF KEV",
         "genre": "Electronic Pop",
         "year": 2015,
-        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "albumArt": "https://i.pinimg.com/736x/a8/14/eb/a814eb4c51518adcf827f4ee64137f7c.jpg",
         "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/DEAF%20KEV%20-%20%20Invincible%20%20Glitch%20Hop%20%202015.mp3?alt=media&token=1d8f5773-679d-4908-91a5-fd5cbbcabdcf"
     },
     {
@@ -59,7 +68,7 @@
         "artist": "Different Heaven",
         "genre": "DnB",
         "year": 2013,
-        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNsLYGVGsoKBu01smu9qONa1tLMBuzdfFoh4dtElb5OA&s",
         "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Different%20Heaven%20-%20EHDE%20%20My%20Heart%20%20Drumstep%20%202013.mp3?alt=media&token=afd1ebc4-8801-48b1-9123-b8e3f70004ff"
     },
     {
@@ -68,7 +77,7 @@
         "artist": "Janji feat. Johnning",
         "genre": "Progressive House",
         "year": 2016,
-        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "albumArt": "https://coverartworks.com/wp-content/uploads/2022/09/all-in-my-head-750-jpg.webp",
         "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Janji%20%20-%20Heroes%20Tonight%20feat%20Johnning%20%20Progressive%20House%20%202016c.mp3?alt=media&token=61c1a1ee-35eb-4e21-8ee6-48a3de0f2081"
     },
     {
@@ -77,8 +86,71 @@
         "artist": "Warriyo feat. Laura Brehm",
         "genre": "Techno",
         "year": 2017,
-        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "albumArt": "https://i.pinimg.com/originals/a4/b6/fc/a4b6fc000e66d3e07ebea1d9a9bffa33.jpg",
         "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Warriyo%20%20Mortals%20feat%20Laura%20Brehm%20%20Future%20Trap%20%202017.mp3?alt=media&token=c4469284-8dcb-427f-8fee-4cfe0bc27d9c"
+    },
+    {
+        "id": "ncs_12857345",
+        "title": "Feel Good",
+        "artist": "Syn Cole",
+        "genre": "Future House",
+        "year": 2016,
+        "albumArt": "https://qodeinteractive.com/magazine/wp-content/uploads/2020/06/16-Tame-Impala.jpg",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Syn%20Cole%20-%20Feel%20Good%20%20Future%20House%20%20NCS%20-%20Copyright%20Free%20Music.mp3?alt=media&token=5bd3aded-4410-4287-9667-6b9bc94b722e"
+    },
+    {
+        "id": "ncs_677853435",
+        "title": "Nekozilla",
+        "artist": "Electro",
+        "genre": "Techno",
+        "year": 2015,
+        "albumArt": "https://www.andysowards.com/blog/assets/01-album.jpg",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Different%20Heaven%20-%20Nekozilla%20%20Electro%20%20NCS%20-%20Copyright%20Free%20Music.mp3?alt=media&token=291f0770-430e-4aec-8186-d8d76d580f65"
+    },
+    {
+        "id": "ncs_71237182",
+        "title": "Shootin Stars",
+        "artist": "Aero Chord feat. DDARK",
+        "genre": "Trap",
+        "year": 2014,
+        "albumArt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpS_A2XJqlbnA4cFySb7i87xGFeCj9ZJzpw82g8Knm1Q&s",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Aero%20Chord%20feat.%20DDARK%20-%20Shootin%20Stars%20%5BNCS%20Release%5D.mp3?alt=media&token=72afcac3-b14b-4603-9935-f35843cb0ace"
+    },
+    {
+        "id": "ncs_96348234",
+        "title": "Ark",
+        "artist": "Ship Wrek & Zookeepers",
+        "genre": "Future House",
+        "year": 2016,
+        "albumArt": "https://coverartworks.com/wp-content/uploads/2021/09/Space-600x600-1-jpg.webp",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Ship%20Wrek%20%26%20Zookeepers%20-%20Ark%20%20Future%20Bass%20%20NCS%20-%20Copyright%20Free%20Music.mp3?alt=media&token=a2516a84-0f57-4ffe-a227-ec50bcbc9ca2"
+    },
+    {
+        "id": "ncs_483424634",
+        "title": "Royalty",
+        "artist": "Egzod & Maestro Chives",
+        "genre": "Trap",
+        "year": 2021,
+        "albumArt": "https://pics.craiyon.com/2023-07-16/c6626428699243c78ed02a241dba4411.webp",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Egzod%20%26%20Maestro%20Chives%20-%20Royalty%20(ft.%20Neoni)%20%20Trap%20%20NCS%20-%20Copyright%20Free%20Music.mp3?alt=media&token=d9e876f6-18f2-48c3-81f6-a83b06258cc0"
+    },
+    {
+        "id": "ncs_634546745",
+        "title": "Superhero",
+        "artist": "Unknown Brain feat. Chris Linton",
+        "genre": "Trap",
+        "year": 2016,
+        "albumArt": "https://www.billboard.com/wp-content/uploads/media/tyler-the-creator-igor-album-art-2019-billboard-embed.jpg?w=600",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Unknown%20Brain%20-%20Superhero%20(feat.%20Chris%20Linton)%20%20Trap%20%20NCS%20-%20Copyright%20Free%20Music.mp3?alt=media&token=6a382204-7c8e-4464-b573-23ff1947f92d"
+    },
+    {
+        "id": "ncs_824568612",
+        "title": "Energy",
+        "artist": "Elektronomia",
+        "genre": "Progressive House",
+        "year": 2016,
+        "albumArt": "https://img.freepik.com/free-vector/gradient-album-cover-template_23-2150597431.jpg",
+        "audioURL": "https://firebasestorage.googleapis.com/v0/b/flutter-tunes-app.appspot.com/o/Elektronomia%20-%20Energy%20%20Progressive%20House%20%20NCS%20-%20Copyright%20Free%20Music.mp3?alt=media&token=079e8b6e-1d82-4a60-b2f6-99f2725f76d0"
     }
 ]
 }

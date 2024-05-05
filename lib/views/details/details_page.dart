@@ -99,57 +99,61 @@ class _DetailsPageState extends State<DetailsPage> {
                         Text(widget.musicItem.artist,
                             style: const TextStyle(
                                 fontSize: 20.0, fontWeight: FontWeight.w500)),
+                        const SizedBox(height: 16.0),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "${widget.musicItem.genre} - ${widget.musicItem.year}",
+                            style: const TextStyle(
+                                fontSize: 18.0, fontWeight: FontWeight.w500),
+                          ),
+                        ),
                       ],
                     ),
                   ),
                   const Spacer(),
-                  Container(
-                    margin: const EdgeInsets.only(right: 6),
-                    width: 42.0,
-                    height: 42.0,
-                    decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.white),
-                    child: const Icon(
-                      Icons.share,
-                      color: Colors.black,
-                      size: 28,
-                    ),
-                  ),
-                  Container(
-                    width: 42.0,
-                    height: 42.0,
-                    decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.white),
-                    child: IconButton(
-                      icon: Icon(
-                        (isFavourite) ? Icons.favorite : Icons.favorite_outline,
-                        color: (isFavourite) ? Colors.red : Colors.black,
-                        size: 28,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 42.0,
+                        height: 42.0,
+                        decoration: const BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.white),
+                        child: IconButton(
+                          icon: Icon(
+                            (isFavourite)
+                                ? Icons.favorite
+                                : Icons.favorite_outline,
+                            color: (isFavourite) ? Colors.red : Colors.black,
+                            size: 28,
+                          ),
+                          padding: const EdgeInsets.all(0.0),
+                          onPressed: () {
+                            BlocProvider.of<AppBloc>(context).add(
+                                ToggleSongFavouriteEvent(
+                                    songId: widget.musicItem.id));
+                            setState(() {
+                              isFavourite = !isFavourite;
+                            });
+                          },
+                        ),
                       ),
-                      padding: const EdgeInsets.all(0.0),
-                      onPressed: () {
-                        BlocProvider.of<AppBloc>(context).add(
-                            ToggleSongFavouriteEvent(
-                                songId: widget.musicItem.id));
-                        setState(() {
-                          isFavourite = !isFavourite;
-                        });
-                      },
-                    ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 12),
+                        width: 42.0,
+                        height: 42.0,
+                        decoration: const BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.white),
+                        child: const Icon(
+                          Icons.share,
+                          color: Colors.black,
+                          size: 28,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
-              ),
-              const SizedBox(height: 16.0),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Text(
-                    "${widget.musicItem.genre} - ${widget.musicItem.year}",
-                    style: const TextStyle(
-                        fontSize: 18.0, fontWeight: FontWeight.w500),
-                  ),
-                ),
               ),
               const SizedBox(height: 36.0),
               AudioPlayer(audioURL: widget.musicItem.audioUrl),
