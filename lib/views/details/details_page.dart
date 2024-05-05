@@ -56,30 +56,33 @@ class _DetailsPageState extends State<DetailsPage> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Container(
-                margin: const EdgeInsets.only(top: 84, bottom: 36),
-                width: 260,
-                height: 260,
-                child: (connectivity && widget.musicItem.albumArt.isNotEmpty)
-                    ? ClipRRect(
-                            borderRadius: BorderRadius.circular(48),
-                            child: Image.network(widget.musicItem.albumArt,
-                                fit: BoxFit.contain))
-                        .animate()
-                        .fadeIn(duration: 2.seconds)
-                    : Image.asset('assets/music_disc.png')
-                        .animate()
-                        .fadeIn(duration: 1.5.seconds)
-                        .then()
-                        .animate(
-                          onPlay: (controller) => controller.repeat(),
-                        )
-                        .rotate(
-                          duration: 36.seconds,
-                          begin: 0,
-                          end: 1,
-                          curve: Curves.linear,
-                        ),
+              Hero(
+                tag: 'album_art_${widget.musicItem.id}',
+                child: Container(
+                  margin: const EdgeInsets.only(top: 84, bottom: 36),
+                  width: 260,
+                  height: 260,
+                  child: (connectivity && widget.musicItem.albumArt.isNotEmpty)
+                      ? ClipRRect(
+                          borderRadius: BorderRadius.circular(48),
+                          child: Image.network(widget.musicItem.albumArt,
+                              fit: BoxFit.contain))
+                      // .animate()
+                      // .fadeIn(duration: 2.seconds)
+                      : Image.asset('assets/music_disc.png')
+                          .animate()
+                          .fadeIn(duration: 1.5.seconds)
+                          .then()
+                          .animate(
+                            onPlay: (controller) => controller.repeat(),
+                          )
+                          .rotate(
+                            duration: 36.seconds,
+                            begin: 0,
+                            end: 1,
+                            curve: Curves.linear,
+                          ),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

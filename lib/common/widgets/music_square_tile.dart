@@ -31,12 +31,15 @@ class MusicSquareTile extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(12.0)),
           child: Stack(
             children: <Widget>[
-              SizedBox(
-                  height: 180,
-                  child: (appState.connectivity != ConnectivityResult.none &&
-                          item.albumArt.isNotEmpty)
-                      ? Image.network(item.albumArt, fit: BoxFit.contain)
-                      : Image.asset('assets/music_disc.png')),
+              Hero(
+                tag: 'album_art_${item.id}',
+                child: SizedBox(
+                    height: 180,
+                    child: (appState.connectivity != ConnectivityResult.none &&
+                            item.albumArt.isNotEmpty)
+                        ? Image.network(item.albumArt, fit: BoxFit.contain)
+                        : Image.asset('assets/music_disc.png')),
+              ),
               Positioned(
                 bottom: 0.0,
                 left: 0.0,

@@ -27,16 +27,20 @@ class MusicInfoTile extends StatelessWidget {
           children: [
             Row(
               children: [
-                SizedBox(
-                  height: 80,
-                  width: 80,
-                  child: (appState.connectivity != ConnectivityResult.none &&
-                          musicItem.albumArt.isNotEmpty)
-                      ? ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: Image.network(musicItem.albumArt,
-                              fit: BoxFit.contain))
-                      : Image.asset('assets/music_disc.png'),
+                Hero(
+                  tag: 'album_art_${musicItem.id}',
+                  child: SizedBox(
+                    height: 80,
+                    width: 80,
+                    child: (appState.connectivity != ConnectivityResult.none &&
+                            musicItem.albumArt.isNotEmpty)
+                        ? ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.network(musicItem.albumArt,
+                                fit: BoxFit.contain),
+                          )
+                        : Image.asset('assets/music_disc.png'),
+                  ),
                 ),
                 const SizedBox(width: 16),
                 Column(

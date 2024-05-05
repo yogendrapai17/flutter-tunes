@@ -75,6 +75,8 @@ class AppTheme {
           borderRadius: BorderRadius.circular(12.0),
         ),
       ),
+      progressIndicatorTheme:
+          const ProgressIndicatorThemeData(color: AppColors.primaryColor),
       appBarTheme: const AppBarTheme(
         elevation: 0,
         color: Colors.transparent,
