@@ -36,6 +36,7 @@ class FlutterTunesApp extends StatefulWidget {
   @override
   State<FlutterTunesApp> createState() => _FlutterTunesAppState();
 
+  // ignore: library_private_types_in_public_api
   static _FlutterTunesAppState of(BuildContext context) =>
       context.findAncestorStateOfType<_FlutterTunesAppState>()!;
 }
