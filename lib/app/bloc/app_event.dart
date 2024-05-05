@@ -33,11 +33,18 @@ class ConnectivityChangedEvent extends AppEvent {
   ConnectivityChangedEvent({required this.currentConnectivity});
 }
 
-class SearchFilterSongEvent extends AppEvent {
-  final String? searchKey;
-  final List<String>? filter;
+/// Add/Remove filter
+class ToggleFilterEvent extends AppEvent {
+  final String filter;
 
-  SearchFilterSongEvent({this.searchKey, this.filter});
+  ToggleFilterEvent({required this.filter});
+}
+
+/// Search song with a key
+class SearchSongEvent extends AppEvent {
+  final String? searchKey;
+
+  SearchSongEvent({this.searchKey});
 }
 
 /// Enable/Disable Dark Mode in application

@@ -116,6 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                                 padding: const EdgeInsets.only(top: 12),
                                 child: TextFormField(
                                   controller: _nameController,
+                                  textInputAction: TextInputAction.next,
                                   keyboardType: TextInputType.name,
                                   maxLength: 25,
                                   decoration: InputDecoration(

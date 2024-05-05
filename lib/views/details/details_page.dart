@@ -144,9 +144,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   child: Text(
                     "${widget.musicItem.genre} - ${widget.musicItem.year}",
                     style: const TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black54),
+                        fontSize: 18.0, fontWeight: FontWeight.w500),
                   ),
                 ),
               ),

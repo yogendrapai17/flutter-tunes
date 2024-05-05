@@ -1,10 +1,9 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tunes/app/bloc/app_bloc.dart';
-import 'package:flutter_tunes/app/routes.dart';
 import 'package:flutter_tunes/app/themes.dart';
 import 'package:flutter_tunes/common/models/music.dart';
-import 'package:flutter_tunes/common/widgets/music_tile.dart';
+import 'package:flutter_tunes/common/widgets/music_square_tile.dart';
 import 'package:provider/provider.dart';
 
 class FavouritesPage extends StatelessWidget {
@@ -60,12 +59,8 @@ class FavouritesPage extends StatelessWidget {
                 itemCount: favourites.length,
                 itemBuilder: (context, index) {
                   final item = favourites[index];
-                  return MusicTile(
+                  return MusicSquareTile(
                     item: item,
-                    onTap: () {
-                      Navigator.pushNamed(context, AppRouteNames.details,
-                          arguments: item);
-                    },
                   );
                 },
               ),

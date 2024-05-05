@@ -19,6 +19,16 @@ class AppTheme {
         },
       ),
       primaryColor: AppColors.primaryColor,
+      inputDecorationTheme: InputDecorationTheme(
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+              color: AppColors.primaryColor), // Set focused border color
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12.0),
+        ),
+      ),
       progressIndicatorTheme:
           const ProgressIndicatorThemeData(color: AppColors.primaryColor),
       appBarTheme: const AppBarTheme(
@@ -42,9 +52,17 @@ class AppTheme {
       fontFamily: 'Poppins',
       brightness: Brightness.dark,
       primaryColor: AppColors.primaryColor,
-      inputDecorationTheme: const InputDecorationTheme(
+      inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.darkBackground,
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+              color: AppColors.primaryColor), // Set focused border color
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12.0),
+        ),
       ),
       textTheme: const TextTheme(
         labelLarge: TextStyle(color: Colors.white),

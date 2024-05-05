@@ -5,16 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tunes/app/app_colors.dart';
 import 'package:flutter_tunes/app/bloc/app_bloc.dart';
+import 'package:flutter_tunes/app/routes.dart';
 import 'package:flutter_tunes/common/models/music.dart';
 import 'package:flutter_tunes/common/utils.dart';
 import 'package:provider/provider.dart';
 
-class MusicTile extends StatelessWidget {
+class MusicSquareTile extends StatelessWidget {
   final Music item;
 
-  final void Function()? onTap;
-
-  const MusicTile({super.key, required this.item, this.onTap});
+  const MusicSquareTile({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,9 @@ class MusicTile extends StatelessWidget {
     final appState = BlocProvider.of<AppBloc>(context).state;
 
     return InkWell(
-      onTap: onTap,
+      onTap: () {
+        Navigator.of(context).pushNamed(AppRouteNames.details, arguments: item);
+      },
       child: Container(
         width: min(200.0, screenSize.width * 0.6),
         margin: const EdgeInsets.fromLTRB(0.0, 5.0, 5.0, 5.0),
@@ -32,7 +33,8 @@ class MusicTile extends StatelessWidget {
             children: <Widget>[
               SizedBox(
                   height: 180,
-                  child: (appState.connectivity != ConnectivityResult.none)
+                  child: (appState.connectivity != ConnectivityResult.none &&
+                          item.albumArt.isNotEmpty)
                       ? Image.network(item.albumArt, fit: BoxFit.contain)
                       : Image.asset('assets/music_disc.png')),
               Positioned(

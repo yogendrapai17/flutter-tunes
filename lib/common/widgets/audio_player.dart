@@ -160,10 +160,7 @@ class _AudioPlayerState extends State<AudioPlayer> {
               width: 60.0,
               child: Text(
                 Utils.durationString(currentPosition),
-                style: const TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.black54,
-                ),
+                style: const TextStyle(fontSize: 15.0),
               ),
             ),
             Container(
@@ -173,17 +170,16 @@ class _AudioPlayerState extends State<AudioPlayer> {
                 Utils.durationString(audioDuration),
                 style: const TextStyle(
                   fontSize: 15.0,
-                  color: Colors.black54,
                 ),
               ),
             ),
           ],
         ),
         Container(
-          height: 80.0,
-          width: 80.0,
-          decoration:
-              const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+          height: 64.0,
+          width: 64.0,
+          decoration: const BoxDecoration(
+              shape: BoxShape.circle, color: AppColors.primaryColor),
           child: IconButton(
             onPressed: () {
               if (playerModule.isStopped) {
@@ -199,6 +195,7 @@ class _AudioPlayerState extends State<AudioPlayer> {
             icon: Icon(
               (playerModule.isPlaying) ? Icons.pause : Icons.play_arrow,
               size: 48.0,
+              color: Colors.white,
             ),
           ),
         ),

@@ -6,9 +6,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tunes/app/bloc/app_bloc.dart';
 import 'package:flutter_tunes/app/routes.dart';
 import 'package:flutter_tunes/app/themes.dart';
-import 'package:flutter_tunes/common/models/music.dart';
-import 'package:flutter_tunes/common/widgets/music_tile.dart';
-import 'package:flutter_tunes/views/home/home_drawer.dart';
+import 'package:flutter_tunes/common/widgets/music_info_tile.dart';
+import 'package:flutter_tunes/views/home/components/filter_search_widget.dart';
+import 'package:flutter_tunes/views/home/components/top_charts_widget.dart';
+
+import 'components/home_drawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -55,109 +57,97 @@ class _HomePageState extends State<HomePage> {
         )));
       },
       builder: (context, state) {
-        return Scaffold(
-          extendBodyBehindAppBar: true,
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            actions: [
-              IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, AppRouteNames.favourites);
-                },
-                icon: const Icon(Icons.favorite_outline),
-              )
-            ],
-          ),
-          drawer: const Drawer(
-            child: HomeDrawer(),
-          ),
-          body: Container(
-            decoration: BoxDecoration(
-              gradient: AppTheme.getScaffoldBackground(context),
-            ),
-            child: ListView(
-              children: [
-                _buildHorizontalSection('Top Charts',
-                    _buildHorizontalTileList(context, state.musicList)),
-                _buildVerticalSection('Discover',
-                    _buildVerticalTileList(context, state.musicList)),
-                // Add more sections as needed
+        return SafeArea(
+          child: Scaffold(
+            extendBodyBehindAppBar: true,
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              actions: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, AppRouteNames.favourites);
+                  },
+                  icon: const Icon(Icons.favorite_outline),
+                )
               ],
+            ),
+            drawer: const Drawer(
+              child: HomeDrawer(),
+            ),
+            body: Container(
+              width: double.infinity,
+              height: double.infinity,
+              decoration: BoxDecoration(
+                gradient: AppTheme.getScaffoldBackground(context),
+              ),
+              child: ListView(
+                padding: const EdgeInsets.only(top: 60),
+                children: [
+                  const TopChartsWidget(),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 12, top: 12, right: 12),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text(
+                            'Discover',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        const FilterSearchWidget(),
+                        const SizedBox(height: 16),
+                        BlocBuilder<AppBloc, AppState>(
+                          builder: (context, state) {
+                            if (state.filters.isNotEmpty ||
+                                (state.searchKey?.isNotEmpty ?? false)) {
+                              if (state.searchResult?.isEmpty ?? true) {
+                                return const Center(
+                                  child: Text('No items that match the search'),
+                                );
+                              }
+                              return ListView.separated(
+                                physics: const NeverScrollableScrollPhysics(),
+                                padding: EdgeInsets.zero,
+                                shrinkWrap: true,
+                                itemCount: state.searchResult!.length,
+                                itemBuilder: (context, index) {
+                                  return MusicInfoTile(
+                                      musicItem: state.searchResult![index]);
+                                },
+                                separatorBuilder: (_, __) =>
+                                    const Divider(height: 1.5),
+                              );
+                            } else {
+                              return ListView.separated(
+                                physics: const NeverScrollableScrollPhysics(),
+                                padding: EdgeInsets.zero,
+                                shrinkWrap: true,
+                                itemCount: state.musicList.length,
+                                itemBuilder: (context, index) {
+                                  return MusicInfoTile(
+                                      musicItem: state.musicList[index]);
+                                },
+                                separatorBuilder: (_, __) =>
+                                    const Divider(height: 1.5),
+                              );
+                            }
+                          },
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         );
       },
-    );
-  }
-
-  Widget _buildHorizontalSection(String title, Widget content) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            title,
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: content,
-        ),
-      ],
-    );
-  }
-
-  Widget _buildVerticalSection(String title, Widget content) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            title,
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        content,
-      ],
-    );
-  }
-
-  Widget _buildHorizontalTileList(BuildContext context, List<Music> musicList) {
-    return Row(
-      children: List.generate(
-        musicList.length,
-        (index) => MusicTile(
-          item: musicList[index],
-          onTap: () {
-            Navigator.of(context)
-                .pushNamed(AppRouteNames.details, arguments: musicList[index]);
-          },
-        ),
-      ),
-    );
-  }
-
-  Widget _buildVerticalTileList(BuildContext context, List<Music> musicList) {
-    return Column(
-      children: List.generate(
-        musicList.length,
-        (index) => MusicTile(
-          item: musicList[index],
-          onTap: () {
-            Navigator.of(context)
-                .pushNamed(AppRouteNames.details, arguments: musicList[index]);
-          },
-        ),
-      ),
     );
   }
 

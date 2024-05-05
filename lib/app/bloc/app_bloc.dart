@@ -23,6 +23,8 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     on<ToggleSongFavouriteEvent>(_onToggleFavouriteEvent);
     on<ConnectivityChangedEvent>(_onConnectivityChangedEvent);
     on<ToggleDarkModeEvent>(_onToggleDarkModeEvent);
+    on<ToggleFilterEvent>(_onToggleFilterEvent);
+    on<SearchSongEvent>(_onSearchSongEvent);
   }
 
   Future<void> _onAppInitEvent(
@@ -133,6 +135,42 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         key: StringConsts.darkTheme, value: event.isEnabled);
     emit(state.copyWith(
         selectedTheme: (event.isEnabled) ? ThemeMode.dark : ThemeMode.light));
+  }
+
+  /// Toggle Filter
+  Future<void> _onToggleFilterEvent(
+    ToggleFilterEvent event,
+    Emitter<AppState> emit,
+  ) async {
+    List<String> existingFilters = [...state.filters];
+
+    if (existingFilters.contains(event.filter)) {
+      existingFilters.remove(event.filter);
+    } else {
+      existingFilters.add(event.filter);
+    }
+
+    final filterSearch =
+        _searchMusic(filters: existingFilters, key: state.searchKey);
+
+    emit(state.copyWith(filters: existingFilters, searchResult: filterSearch));
+  }
+
+  /// Search/Filter songs
+  Future<void> _onSearchSongEvent(
+    SearchSongEvent event,
+    Emitter<AppState> emit,
+  ) async {}
+
+  /// Search Music based on filters and key
+  List<Music> _searchMusic({String? key, List<String>? filters}) {
+    List<Music> searchRes = [];
+    if (filters?.isNotEmpty ?? false) {
+      searchRes.addAll(state.musicList
+          .where((music) => filters!.contains(music.genre))
+          .toList());
+    }
+    return searchRes;
   }
 
   /// Sync local changes with remote and fetch the latest data
