@@ -28,6 +28,8 @@ class AppTheme {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.0),
         ),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
       ),
       progressIndicatorTheme:
           const ProgressIndicatorThemeData(color: AppColors.primaryColor),
@@ -51,10 +53,19 @@ class AppTheme {
     return ThemeData(
       fontFamily: 'Poppins',
       brightness: Brightness.dark,
+      useMaterial3: false,
+      pageTransitionsTheme: const PageTransitionsTheme(
+        builders: {
+          TargetPlatform.android: ZoomPageTransitionsBuilder(),
+          TargetPlatform.iOS: ZoomPageTransitionsBuilder(),
+        },
+      ),
       primaryColor: AppColors.primaryColor,
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.darkBackground,
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(
@@ -64,13 +75,18 @@ class AppTheme {
           borderRadius: BorderRadius.circular(12.0),
         ),
       ),
-      textTheme: const TextTheme(
-        labelLarge: TextStyle(color: Colors.white),
-        bodyLarge: TextStyle(color: Colors.white), // Body text color
-        titleLarge: TextStyle(color: Colors.white), // Headline text color
+      appBarTheme: const AppBarTheme(
+        elevation: 0,
+        color: Colors.transparent,
+        centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.white),
+        titleTextStyle: TextStyle(
+          fontSize: 24.0,
+          fontWeight: FontWeight.w600,
+          color: Colors.white,
+          fontFamily: 'Poppins',
+        ),
       ),
-      //scaffoldBackgroundColor: AppColors.darkBackground, // Background color
-      appBarTheme: const AppBarTheme(elevation: 0.0, color: Colors.transparent),
     );
   }
 

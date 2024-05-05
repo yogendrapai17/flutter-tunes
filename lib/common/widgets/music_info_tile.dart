@@ -2,23 +2,25 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tunes/app/bloc/app_bloc.dart';
+import 'package:flutter_tunes/app/routes.dart';
 import 'package:flutter_tunes/common/models/music.dart';
 import 'package:flutter_tunes/common/utils.dart';
 import 'package:provider/provider.dart';
 
 class MusicInfoTile extends StatelessWidget {
-  const MusicInfoTile({super.key, required this.musicItem, this.onTap});
+  const MusicInfoTile({super.key, required this.musicItem});
 
   final Music musicItem;
-
-  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     final appState = BlocProvider.of<AppBloc>(context).state;
 
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        Navigator.of(context)
+            .pushNamed(AppRouteNames.details, arguments: musicItem);
+      },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
         child: Stack(
@@ -59,7 +61,7 @@ class MusicInfoTile extends StatelessWidget {
                     ),
                     const SizedBox(height: 4.0),
                     Text(
-                      musicItem.genre,
+                      "${musicItem.genre} - ${musicItem.year}",
                       style: const TextStyle(
                         fontSize: 11.0,
                         fontWeight: FontWeight.w200,

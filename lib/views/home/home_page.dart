@@ -41,34 +41,53 @@ class _HomePageState extends State<HomePage> {
           previous.connectivity != current.connectivity &&
           previous.connectivity != null,
       listener: (context, state) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
             content: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text((state.connectivity == ConnectivityResult.none)
-                ? 'You are currently offline. \nPlease check the internet connection'
-                : 'Connection is back! No longer offline'),
-            Icon(
-                (state.connectivity == ConnectivityResult.none)
-                    ? Icons.wifi_off
-                    : Icons.sync,
-                color: Colors.white),
-          ],
-        )));
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text((state.connectivity == ConnectivityResult.none)
+                    ? 'You are currently offline. \nPlease check the internet connection'
+                    : 'Connection is back! No longer offline'),
+                Icon(
+                    (state.connectivity == ConnectivityResult.none)
+                        ? Icons.wifi_off
+                        : Icons.sync,
+                    color: Colors.white),
+              ],
+            ),
+          ),
+        );
       },
       builder: (context, state) {
         return SafeArea(
           child: Scaffold(
             extendBodyBehindAppBar: true,
             appBar: AppBar(
-              backgroundColor: Colors.transparent,
+              leading: Builder(
+                builder: (context) {
+                  return GestureDetector(
+                    onTap: () => Scaffold.of(context).openDrawer(),
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 16),
+                      width: 36,
+                      height: 36,
+                      child: const CircleAvatar(
+                        radius: 32,
+                        backgroundImage: AssetImage('assets/avatar.png'),
+                      ),
+                    ),
+                  );
+                },
+              ),
               actions: [
                 IconButton(
                   onPressed: () {
                     Navigator.pushNamed(context, AppRouteNames.favourites);
                   },
                   icon: const Icon(Icons.favorite_outline),
-                )
+                ),
+                const SizedBox(width: 8),
               ],
             ),
             drawer: const Drawer(

@@ -77,10 +77,13 @@ class _AnimatedSearchBarState extends State<AnimatedSearchBar>
               width: _widthAnimation!.value,
               child: TextField(
                 focusNode: _focusNode,
+                style: const TextStyle(color: Colors.black),
                 decoration: const InputDecoration(
                   hintText: "Search Title, Artist, Year, Genre ...",
+                  hintStyle: TextStyle(fontSize: 14, color: Colors.black),
                   filled: true,
                   fillColor: Colors.white,
+                  contentPadding: EdgeInsets.symmetric(horizontal: 12),
                 ),
                 onChanged: (val) {
                   BlocProvider.of<AppBloc>(context)

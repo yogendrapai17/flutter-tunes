@@ -16,18 +16,30 @@ class _HomeDrawerState extends State<HomeDrawer> {
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<AppBloc>(context);
-    return ListView(
-      padding: EdgeInsets.zero,
+    return Column(
       children: [
-        const DrawerHeader(
-          child: Text('Menu'),
+        DrawerHeader(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const CircleAvatar(
+                radius: 36,
+                backgroundImage: AssetImage('assets/avatar.png'),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                'Hello, ${bloc.state.loggedInUser?.name}',
+                style:
+                    const TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
         ),
         ListTile(
-          leading: const Icon(Icons.logout),
-          title: const Text('Logout'),
+          leading: const Icon(Icons.favorite),
+          title: const Text('Favourites'),
           onTap: () {
-            BlocProvider.of<AppBloc>(context).add(UserLogoutEvent());
-            Navigator.of(context).pushReplacementNamed(AppRouteNames.login);
+            Navigator.of(context).popAndPushNamed(AppRouteNames.favourites);
           },
         ),
         ListTile(
@@ -44,12 +56,25 @@ class _HomeDrawerState extends State<HomeDrawer> {
           ),
         ),
         ListTile(
-          title: Text('Playlist 2'),
+          leading: const Icon(Icons.logout),
+          title: const Text('Logout'),
           onTap: () {
-            // Navigate to playlist 2
+            bloc.add(UserLogoutEvent());
+            Navigator.of(context).pushReplacementNamed(AppRouteNames.login);
           },
         ),
-        // Add more menu items as needed
+        const Spacer(),
+        const Text(
+          'Version 1.0.1',
+          style: TextStyle(fontSize: 12),
+        ),
+        const SizedBox(height: 8),
+        const Text(
+          'Made with ❤️ in India',
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 13),
+        ),
+        const SizedBox(height: 16),
       ],
     );
   }
