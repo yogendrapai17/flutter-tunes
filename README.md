@@ -1,16 +1,16 @@
-# flutter_tunes
+# Flutter Tunes - Your personal music universe
 
-A new Flutter project.
+A Music Player built over Flutter and Dart 🚀
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
+- Latest Flutter and Dart v3.2.0+ installed
 
-A few resources to get you started if this is your first Flutter project:
+### Steps to Run the Application
+- Clone the Repository/Download .zip and extract contents
+- Open in VSCode/Android Studio and choose the target device of your choice.
+- In the terminal of the IDE, run "flutter run"
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Features

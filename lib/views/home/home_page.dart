@@ -46,9 +46,9 @@ class _HomePageState extends State<HomePage> {
         .listen((List<ConnectivityResult> result) {
       BlocProvider.of<AppBloc>(context)
           .add(ConnectivityChangedEvent(currentConnectivity: result.first));
-
-      _scrollController.addListener(_onScroll);
     });
+
+    _scrollController.addListener(_onScroll);
   }
 
   @override
