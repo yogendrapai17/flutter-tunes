@@ -39,7 +39,7 @@ class AppTheme {
         centerTitle: true,
         iconTheme: IconThemeData(color: Colors.black),
         titleTextStyle: TextStyle(
-          fontSize: 24.0,
+          fontSize: 20.0,
           fontWeight: FontWeight.w600,
           color: Colors.black,
           fontFamily: 'Poppins',
@@ -83,7 +83,7 @@ class AppTheme {
         centerTitle: true,
         iconTheme: IconThemeData(color: Colors.white),
         titleTextStyle: TextStyle(
-          fontSize: 24.0,
+          fontSize: 20.0,
           fontWeight: FontWeight.w600,
           color: Colors.white,
           fontFamily: 'Poppins',

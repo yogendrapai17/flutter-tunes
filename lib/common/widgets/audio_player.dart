@@ -2,9 +2,12 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:flutter_tunes/app/app_colors.dart';
+import 'package:flutter_tunes/app/bloc/app_bloc.dart';
 import 'package:flutter_tunes/common/utils.dart';
 
 class AudioPlayer extends StatefulWidget {
@@ -85,6 +88,16 @@ class _AudioPlayerState extends State<AudioPlayer> {
 
   Future<void> startPlayer() async {
     try {
+      if (BlocProvider.of<AppBloc>(context).state.connectivity ==
+          ConnectivityResult.none) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content:
+                Text('Please enable Internet connection for streaming music'),
+          ),
+        );
+        return;
+      }
       await playerModule.startPlayer(
           fromURI: widget.audioFile?.path ?? widget.audioURL,
           codec: _codec,

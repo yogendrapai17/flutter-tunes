@@ -30,18 +30,18 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _cnfPasswordController = TextEditingController();
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
+  void initState() {
+    super.initState();
 
     /// Show user if the app is offline
-    if (BlocProvider.of<AppBloc>(context).state.connectivity ==
-        ConnectivityResult.none) {
-      Future.delayed(const Duration(seconds: 2)).then((value) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      if (BlocProvider.of<AppBloc>(context).state.connectivity ==
+          ConnectivityResult.none) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             content: Text(
                 'You are currently offline. \nPlease enable internet connection')));
-      });
-    }
+      }
+    });
   }
 
   @override
@@ -176,62 +176,19 @@ class _LoginPageState extends State<LoginPage> {
                             const SizedBox(height: 24.0),
                             ElevatedButton(
                               onPressed: () async {
-                                if (_formKey.currentState?.validate() ??
-                                    false) {
-                                  if (provider.loginStatus ==
-                                      LoginStatus.newUser) {
-                                    if (_passwordController.text.trim() ==
-                                        _cnfPasswordController.text.trim()) {
-                                      final result = await provider.signUpUser(
-                                          name: _nameController.text.trim(),
-                                          email: _emailController.text.trim(),
-                                          password:
-                                              _passwordController.text.trim());
-                                      if (result != null) {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(const SnackBar(
-                                                content: Text(
-                                                    "User created successfully")));
-                                        BlocProvider.of<AppBloc>(context)
-                                            .add(UserLoginEvent(user: result));
-                                        Navigator.of(context)
-                                            .pushReplacementNamed(
-                                                AppRouteNames.home);
-                                      } else {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(const SnackBar(
-                                                content: Text(
-                                                    "Something went wrong. Please try again")));
-                                      }
-                                    } else {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(const SnackBar(
-                                              content: Text(
-                                                  "Passwords do not match")));
-                                    }
-                                  } else if (provider.loginStatus ==
-                                      LoginStatus.unauthenticated) {
-                                    final result = provider.verifyLogin(
-                                        password:
-                                            _passwordController.text.trim());
-                                    if (result) {
-                                      BlocProvider.of<AppBloc>(context).add(
-                                          UserLoginEvent(
-                                              user: provider.existingUser));
-                                      Navigator.of(context)
-                                          .pushReplacementNamed(
-                                              AppRouteNames.home);
-                                    } else {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(const SnackBar(
-                                              content:
-                                                  Text("Incorrect password")));
-                                    }
-                                  } else {
-                                    provider.checkUserExists(
-                                        email: _emailController.text.trim());
-                                  }
+                                if (BlocProvider.of<AppBloc>(context)
+                                        .state
+                                        .connectivity ==
+                                    ConnectivityResult.none) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text(
+                                          'Please enable Internet connection for logging in'),
+                                    ),
+                                  );
+                                  return;
                                 }
+                                _submit();
                               },
                               style: ElevatedButton.styleFrom(
                                   padding: const EdgeInsets.symmetric(
@@ -255,6 +212,46 @@ class _LoginPageState extends State<LoginPage> {
         },
       ),
     );
+  }
+
+  Future<void> _submit() async {
+    final provider = Provider.of<LoginProvider>(context);
+    if (_formKey.currentState?.validate() ?? false) {
+      if (provider.loginStatus == LoginStatus.newUser) {
+        if (_passwordController.text.trim() ==
+            _cnfPasswordController.text.trim()) {
+          final result = await provider.signUpUser(
+              name: _nameController.text.trim(),
+              email: _emailController.text.trim(),
+              password: _passwordController.text.trim());
+          if (result != null) {
+            ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text("User created successfully")));
+            BlocProvider.of<AppBloc>(context).add(UserLoginEvent(user: result));
+            Navigator.of(context).pushReplacementNamed(AppRouteNames.home);
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                content: Text("Something went wrong. Please try again")));
+          }
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text("Passwords do not match")));
+        }
+      } else if (provider.loginStatus == LoginStatus.unauthenticated) {
+        final result =
+            provider.verifyLogin(password: _passwordController.text.trim());
+        if (result) {
+          BlocProvider.of<AppBloc>(context)
+              .add(UserLoginEvent(user: provider.existingUser));
+          Navigator.of(context).pushReplacementNamed(AppRouteNames.home);
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text("Incorrect password")));
+        }
+      } else {
+        provider.checkUserExists(email: _emailController.text.trim());
+      }
+    }
   }
 
   String _getTitle(BuildContext context) {

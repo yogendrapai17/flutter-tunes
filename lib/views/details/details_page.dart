@@ -66,9 +66,8 @@ class _DetailsPageState extends State<DetailsPage> {
                       ? ClipRRect(
                           borderRadius: BorderRadius.circular(48),
                           child: Image.network(widget.musicItem.albumArt,
-                              fit: BoxFit.contain))
-                      // .animate()
-                      // .fadeIn(duration: 2.seconds)
+                              fit: BoxFit.contain),
+                        )
                       : Image.asset('assets/music_disc.png')
                           .animate()
                           .fadeIn(duration: 1.5.seconds)

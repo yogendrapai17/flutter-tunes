@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_tunes/app/bloc/app_bloc.dart';
 import 'package:flutter_tunes/app/themes.dart';
 import 'package:flutter_tunes/common/models/music.dart';
@@ -61,7 +62,7 @@ class FavouritesPage extends StatelessWidget {
                   final item = favourites[index];
                   return MusicSquareTile(
                     item: item,
-                  );
+                  ).animate().fadeIn(duration: 2.seconds);
                 },
               ),
             );

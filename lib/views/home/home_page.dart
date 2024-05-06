@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
@@ -22,15 +23,31 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late StreamSubscription<List<ConnectivityResult>> connectivityStream;
 
+  final ScrollController _scrollController = ScrollController();
+
+  /// Current page for pagination
+  int _currentPage = 1;
+
+  /// Last page of data
+  late int _lastPage;
+
+  /// Loading state
+  bool _isLoading = false;
+
   @override
   initState() {
     super.initState();
+
+    _lastPage =
+        (BlocProvider.of<AppBloc>(context).state.musicList.length ~/ 5) + 1;
 
     connectivityStream = Connectivity()
         .onConnectivityChanged
         .listen((List<ConnectivityResult> result) {
       BlocProvider.of<AppBloc>(context)
           .add(ConnectivityChangedEvent(currentConnectivity: result.first));
+
+      _scrollController.addListener(_onScroll);
     });
   }
 
@@ -100,6 +117,7 @@ class _HomePageState extends State<HomePage> {
                 gradient: AppTheme.getScaffoldBackground(context),
               ),
               child: ListView(
+                controller: _scrollController,
                 padding: const EdgeInsets.only(top: 60),
                 children: [
                   const TopChartsWidget(),
@@ -147,17 +165,29 @@ class _HomePageState extends State<HomePage> {
                                     const Divider(height: 1.5),
                               );
                             } else {
-                              return ListView.separated(
-                                physics: const NeverScrollableScrollPhysics(),
-                                padding: EdgeInsets.zero,
-                                shrinkWrap: true,
-                                itemCount: state.musicList.length,
-                                itemBuilder: (context, index) {
-                                  return MusicInfoTile(
-                                      musicItem: state.musicList[index]);
-                                },
-                                separatorBuilder: (_, __) =>
-                                    const Divider(height: 1.5),
+                              return Column(
+                                children: [
+                                  ListView.separated(
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    padding: EdgeInsets.zero,
+                                    shrinkWrap: true,
+                                    itemCount: min(_currentPage * 5,
+                                        state.musicList.length),
+                                    itemBuilder: (context, index) {
+                                      return MusicInfoTile(
+                                          musicItem: state.musicList[index]);
+                                    },
+                                    separatorBuilder: (_, __) =>
+                                        const Divider(height: 1.5),
+                                  ),
+                                  const SizedBox(height: 24),
+                                  if (_isLoading)
+                                    const Padding(
+                                      padding: EdgeInsets.only(bottom: 16),
+                                      child: CircularProgressIndicator(),
+                                    )
+                                ],
                               );
                             }
                           },
@@ -174,8 +204,36 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  /// Check scroll position and show more data
+  void _onScroll() {
+    final maxScroll = _scrollController.position.maxScrollExtent;
+    final currentScroll = _scrollController.offset;
+    final delta = maxScroll - currentScroll;
+
+    if (delta <= _scrollController.initialScrollOffset / 3 &&
+        !_isLoading &&
+        _currentPage <= _lastPage) {
+      _fetchMoreData();
+    }
+  }
+
+  /// Mocking pagination
+  void _fetchMoreData() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    await Future.delayed(const Duration(milliseconds: 1500));
+
+    setState(() {
+      _currentPage++;
+      _isLoading = false;
+    });
+  }
+
   @override
   dispose() {
+    _scrollController.dispose();
     connectivityStream.cancel();
     super.dispose();
   }
